@@ -29,7 +29,8 @@ def setup(app: Application, error_handler: Callable=default_error,
         limiter = LIMITERS.get(method)
 
         if limiter:
-            limiter = limiter(config, error_handler)
+            limiter = limiter(config if config else Config(**kwargs),
+                                error_handler)
             app.middlewares.insert(0, limiter.handle)
         else:
             raise KeyError(f'Method "{method}" is not supported')
