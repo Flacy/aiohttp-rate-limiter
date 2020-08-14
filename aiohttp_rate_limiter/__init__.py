@@ -34,6 +34,6 @@ def setup(app: Application, error_handler: Callable=default_error,
         else:
             raise KeyError(f'Method "{method}" is not supported')
     elif method is not None:
-        raise TypeError('The main argument "method" must be a string')
+        raise TypeError('The main parameter "method" must be a string')
     else:
-        raise KeyError('The main argument "method" is missing')
+        raise KeyError('The main parameter "method" is missing')
