@@ -1,6 +1,6 @@
 # aiohttp-rate-limiter
 
-A library for control and limiting requests for aiohttp framework
+A library for control and limiting requests with aiohttp framework
 
 ### Usage
 ```
