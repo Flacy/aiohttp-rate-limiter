@@ -14,7 +14,13 @@ class FixedWindow:
 
         self._error_handler: Callable = error_handler
 
+        self._check_typing()
         self._set_interval()
+
+    def _check_typing(self):
+        cfg = self._config
+        assert type(cfg.max_requests) == int
+        assert type(cfg.interval) == int
 
     def _set_interval(self):
         async def clear_count(self):

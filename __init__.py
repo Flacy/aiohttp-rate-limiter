@@ -7,7 +7,6 @@ from .cfg import Config
 from .limiters import FixedWindow
 
 LIMITERS = {
-    'leaky_bucket': None,
     'fixed_window': FixedWindow
 }
 
