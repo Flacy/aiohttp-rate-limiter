@@ -14,5 +14,6 @@ setup(
         "Operating System :: OS Independent",
         'Development Status :: 3 - Alpha'
     ],
+    install_requires=['aiohttp>=3.5.2'],
     python_requires='>=3.7'
 )
