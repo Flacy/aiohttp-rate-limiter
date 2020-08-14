@@ -16,14 +16,14 @@ async def default_error(request):
 
 
 def setup(app: Application, error_handler: Callable=default_error,
-            config: Config=None, **kwargs: Dict[str, Any]) -> None:
+            config: Config=None, **params: Dict[str, Any]) -> None:
     if type(config) == Config:
         method = config.__dict__.get('method')
     elif config is not None:
         raise TypeError('Config must be a Config object')
     else:
-        method = kwargs.get('method')
-        config = Config(**kwargs)
+        method = params.get('method')
+        config = Config(**params)
 
     if type(method) == str:
         limiter = LIMITERS.get(method)
