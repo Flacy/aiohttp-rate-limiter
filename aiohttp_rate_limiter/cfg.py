@@ -7,4 +7,4 @@ class Config:
 
     max_requests: int = None
     max_clients: int = None
-    interval: int = 1
+    interval: int = 60
