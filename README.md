@@ -5,7 +5,7 @@
 A library for control and limiting requests with aiohttp framework
 
 ### Usage
-```
+```python
 from aiohttp import web
 from aiohttp_rate_limiter import Config, setup
 
