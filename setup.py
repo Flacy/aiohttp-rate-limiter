@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='aiohttp-rate-limiter',
-    packages=['aiohttp_rate_limiter'],
+    packages=['aiohttp_rate_limiter', 'aiohttp_rate_limiter/limiters'],
     version='0.0.2',
     author='Flacy',
     author_email='me@flacy.me',
