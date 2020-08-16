@@ -4,10 +4,11 @@ from aiohttp.web import Application, HTTPTooManyRequests
 
 from .cfg import Config
 
-from .limiters import FixedWindow
+from .limiters import FixedWindow, SlidingLog
 
 LIMITERS = {
-    'fixed_window': FixedWindow
+    'fixed_window': FixedWindow,
+    'sliding_log': SlidingLog
 }
 
 
@@ -26,7 +27,7 @@ def setup(app: Application, error_handler: Callable=default_error,
         config = Config(**params)
 
     if type(method) == str:
-        limiter = LIMITERS.get(method)
+        limiter = LIMITERS.get(method.lower().replace(' ', '_'))
 
         if limiter:
             limiter = limiter(config, error_handler)
