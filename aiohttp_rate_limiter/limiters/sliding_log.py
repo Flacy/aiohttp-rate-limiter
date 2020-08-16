@@ -34,10 +34,9 @@ class SlidingLog:
     @middleware
     async def handle(self, request, handler):
         ip = request.remote
-        count = self._clients.get(ip)
+        count = self._clients.get(ip, 0)
 
         if not count:
-            count = 0
             self._clients[ip] = 0
 
         if count < self._config.max_requests:
