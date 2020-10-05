@@ -7,11 +7,11 @@ A library for control and limiting requests with aiohttp framework
 ### Usage
 ```python
 from aiohttp import web
-from aiohttp_rate_limiter import Config, setup
+from aiohttp_rate_limiter import Config, setup, methods
 
 
 app = web.Application()
-cfg = Config(method='fixed_window', max_requests=100)
+cfg = Config(method=methods.FIXED_WINDOW, max_requests=100)
 setup(app, config=cfg)
 
 web.run_app(app)
