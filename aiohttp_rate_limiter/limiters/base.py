@@ -17,13 +17,10 @@ class BaseLimiter(ABC):
         self._check_typing()
         self._set_interval()
 
-    @abstractmethod
-    def handle(self):
-        pass
-
-    @abstractmethod
     def _check_typing(self):
-        pass
+        cfg = self._config
+        assert type(cfg.max_requests) == int
+        assert type(cfg.interval) == int
 
     def _set_interval(self):
         async def clear_count(self):
@@ -33,3 +30,7 @@ class BaseLimiter(ABC):
 
         loop = get_event_loop()
         loop.create_task(clear_count(self))
+
+    @abstractmethod
+    def handle(self):
+        pass

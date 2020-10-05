@@ -1,14 +1,9 @@
 from aiohttp.web_middlewares import middleware
 
-from aiohttp_rate_limiter.limiters.base import BaseLimiter
+from .base import BaseLimiter
 
 
 class SlidingLog(BaseLimiter):
-    def _check_typing(self):
-        cfg = self._config
-        assert type(cfg.max_requests) == int
-        assert type(cfg.interval) == int
-
     @middleware
     async def handle(self, request, handler):
         ip = request.remote
